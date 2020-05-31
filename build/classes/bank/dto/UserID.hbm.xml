@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="bank.dto">
+    <class name="UserID" table="userid">
+        <id name="id" column="idno"/>
+        <property  name="password" column="password"/>
+        <joined-subclass name="user" table="bankinfo">
+            <key column="idno"/>
+            <property name="accountNo" column="accountNo" type="long"/>
+            <property name="userName" column="name" />
+            <property name="cifNo" column="cifNo" />
+            <property  name="adharNo" column="adharNo" />
+            <property name="address" column="address" />
+            <property name="phoneNo" column="phoneNo"/>
+            <property name="eMail" column="eMail"/>
+            <property name="accountType" column="accountType"/>
+            <property name="dob" column="dob"/>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>
